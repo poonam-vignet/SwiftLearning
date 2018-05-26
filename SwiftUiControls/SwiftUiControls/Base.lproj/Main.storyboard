@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,10 +20,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="QzS-QD-vhc">
-                                <rect key="frame" x="25" y="31" width="262" height="330.5"/>
+                                <rect key="frame" x="10" y="31" width="290" height="454.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Gy-so-w5X">
-                                        <rect key="frame" x="83.5" y="0.0" width="95.5" height="25"/>
+                                        <rect key="frame" x="97.5" y="0.0" width="95.5" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="Ruq-et-Xm5"/>
                                         </constraints>
@@ -33,7 +32,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xQb-Dm-efp">
-                                        <rect key="frame" x="13" y="45" width="236" height="30"/>
+                                        <rect key="frame" x="0.0" y="45" width="290" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Dke-Ji-m5c"/>
                                         </constraints>
@@ -42,7 +41,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="d3q-hB-UpW">
-                                        <rect key="frame" x="13" y="95" width="236" height="235.5"/>
+                                        <rect key="frame" x="0.0" y="95" width="290" height="289.5"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="d3q-hB-UpW" secondAttribute="height" multiplier="1:1" id="lPV-6s-EEi"/>
@@ -51,19 +50,21 @@
                                             <outletCollection property="gestureRecognizers" destination="ak1-fj-MId" appends="YES" id="FZ5-F9-txh"/>
                                         </connections>
                                     </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dtU-WU-bGb" customClass="RatingControl" customModule="SwiftUiControls" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="404.5" width="290" height="50"/>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="d3q-hB-UpW" firstAttribute="width" secondItem="QzS-QD-vhc" secondAttribute="width" multiplier="0.9" id="XYt-Ce-v66"/>
-                                    <constraint firstItem="xQb-Dm-efp" firstAttribute="width" secondItem="QzS-QD-vhc" secondAttribute="width" multiplier="0.9" id="ifi-Dh-cWt"/>
                                     <constraint firstItem="d3q-hB-UpW" firstAttribute="trailing" secondItem="xQb-Dm-efp" secondAttribute="trailing" id="poe-Hh-thJ"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="QzS-QD-vhc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="70z-Vy-xOi"/>
-                            <constraint firstItem="QzS-QD-vhc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="11" id="GC5-zT-Nl3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QzS-QD-vhc" secondAttribute="trailing" constant="33" id="ai0-Bi-XXD"/>
+                            <constraint firstAttribute="trailing" secondItem="QzS-QD-vhc" secondAttribute="trailing" constant="20" id="6JT-D4-krI"/>
+                            <constraint firstItem="QzS-QD-vhc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="RTw-OW-Hsj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QzS-QD-vhc" secondAttribute="bottom" constant="82.5" id="XcH-B4-X5s"/>
+                            <constraint firstItem="QzS-QD-vhc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="11" id="mcm-79-Zru"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
