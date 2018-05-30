@@ -10,14 +10,26 @@ import UIKit
 
 class HomeTableViewController: UITableViewController {
     var cars:Array<String> = Array();
+    var carsImages:Array<String> = Array();
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cars.insert("BMW", at: 0)
-        cars.insert("Mercedes", at: 1)
-        cars.insert("Range Rover", at: 2)
-        cars.insert("Fortuner", at: 3)
+        cars.insert("Audi", at: 0)
+        cars.insert("bmw", at: 1)
+        cars.insert("Mercedes", at: 2)
+        cars.insert("Rangerover", at: 3)
+        cars.insert("Fortuner", at: 4)
+
+        
+        carsImages.insert("audi", at: 0)
+        carsImages.insert("bmw", at: 1)
+        carsImages.insert("mercedes", at: 2)
+        carsImages.insert("rangerover", at: 3)
+        carsImages.insert("fortuner", at: 4)
+
+
         
         
         // Uncomment the following line to preserve selection between presentations
@@ -25,6 +37,14 @@ class HomeTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        
+        tableView.rowHeight =  UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 44
+        
+        self.tableView.register(UINib(nibName:"CustomCell",bundle:nil), forCellReuseIdentifier: "CustomCellIdentifier")
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,15 +64,34 @@ class HomeTableViewController: UITableViewController {
         return cars.count;
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        //index path maintains row and section path
-        //  case value1 // Left aligned label on left and right aligned label on right with blue text (Used in Settings)
+override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+{
+    //index path maintains row and section path
+    //  case value1 // Left aligned label on left and right aligned label on right with blue text (Used in Settings)
+    
+    
+//      let price = 1000000 ;
+//       let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "CustomeCellTableViewCell")
+//      cell.textLabel?.text = cars[indexPath.row]
+//        cell.detailTextLabel?.text = "\(price + indexPath.row + 1) Rs";
+//  return cell
+    let cutomCell = tableView.dequeueReusableCell(withIdentifier: "CustomCellIdentifier", for: indexPath) as!CustomCell
 
-        let cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: "Sample")
-        cell.textLabel?.text = cars[indexPath.row]
-        return cell
-    }
+    cutomCell.carimage.image = UIImage(named: carsImages[indexPath.row])
+    cutomCell.carNameValueLabel.text = cars[indexPath.row]
+    cutomCell.carNameLabel.isHidden = true;
+    return cutomCell;
+    
+    
+    
+}
+    
+    
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+//    {
+//        return 150.0;
+//    }
+    
     
     /*
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

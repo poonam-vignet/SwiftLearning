@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C4DBC1620BAB9900095F087 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4DBC1420BAB9900095F087 /* CustomCell.swift */; };
+		4C4DBC1720BAB9900095F087 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C4DBC1520BAB9900095F087 /* CustomCell.xib */; };
 		4C7621A320A7F1260034D140 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7621A220A7F1260034D140 /* AppDelegate.swift */; };
 		4C7621A520A7F1260034D140 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7621A420A7F1260034D140 /* ViewController.swift */; };
 		4C7621A820A7F1260034D140 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C7621A620A7F1260034D140 /* Main.storyboard */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C4DBC1420BAB9900095F087 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		4C4DBC1520BAB9900095F087 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		4C76219F20A7F1260034D140 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C7621A220A7F1260034D140 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C7621A420A7F1260034D140 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C4DBC1120BAA8FF0095F087 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				4C4DBC1420BAB9900095F087 /* CustomCell.swift */,
+				4C4DBC1520BAB9900095F087 /* CustomCell.xib */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
 		4C76219620A7F1260034D140 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +69,7 @@
 		4C7621A120A7F1260034D140 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				4C4DBC1120BAA8FF0095F087 /* Presentation */,
 				4C7621A220A7F1260034D140 /* AppDelegate.swift */,
 				4C7621A420A7F1260034D140 /* ViewController.swift */,
 				4C7621A620A7F1260034D140 /* Main.storyboard */,
@@ -128,6 +142,7 @@
 			files = (
 				4C7621AD20A7F1260034D140 /* LaunchScreen.storyboard in Resources */,
 				4C7621AA20A7F1260034D140 /* Assets.xcassets in Resources */,
+				4C4DBC1720BAB9900095F087 /* CustomCell.xib in Resources */,
 				4C7621A820A7F1260034D140 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,6 +156,7 @@
 			files = (
 				4C7621B520A7F9700034D140 /* HomeTableViewController.swift in Sources */,
 				4C7621A520A7F1260034D140 /* ViewController.swift in Sources */,
+				4C4DBC1620BAB9900095F087 /* CustomCell.swift in Sources */,
 				4C7621A320A7F1260034D140 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

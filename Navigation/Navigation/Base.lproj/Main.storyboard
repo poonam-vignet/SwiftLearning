@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,12 +19,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="MXg-Gc-bJp">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CustomeCellTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="150" id="MXg-Gc-bJp" customClass="CustomeCellTableViewCell" customModule="Navigation" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MXg-Gc-bJp" id="9Kb-wK-gBo">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="audi" translatesAutoresizingMaskIntoConstraints="NO" id="cpf-RC-9N0">
+                                            <rect key="frame" x="34" y="29.5" width="90" height="90"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="90" id="RNr-Th-ZfW"/>
+                                                <constraint firstAttribute="height" constant="90" id="gmS-Mh-Rum"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Car Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3F-Sg-u2e">
+                                            <rect key="frame" x="162" y="29" width="197" height="24"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Audi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGF-eh-NLk">
+                                            <rect key="frame" x="162" y="64" width="197" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="B3F-Sg-u2e" secondAttribute="trailing" id="8Dx-Mx-oe1"/>
+                                        <constraint firstItem="LGF-eh-NLk" firstAttribute="leading" secondItem="B3F-Sg-u2e" secondAttribute="leading" id="AnD-us-yhc"/>
+                                        <constraint firstItem="B3F-Sg-u2e" firstAttribute="leading" secondItem="cpf-RC-9N0" secondAttribute="trailing" constant="38" id="Dk7-rX-0qP"/>
+                                        <constraint firstItem="cpf-RC-9N0" firstAttribute="leading" secondItem="9Kb-wK-gBo" secondAttribute="leading" constant="34" id="Y0E-pV-spo"/>
+                                        <constraint firstItem="LGF-eh-NLk" firstAttribute="trailing" secondItem="B3F-Sg-u2e" secondAttribute="trailing" id="c30-Dq-gj1"/>
+                                        <constraint firstItem="B3F-Sg-u2e" firstAttribute="top" secondItem="9Kb-wK-gBo" secondAttribute="topMargin" constant="18" id="okl-vs-A6J"/>
+                                        <constraint firstItem="cpf-RC-9N0" firstAttribute="centerY" secondItem="9Kb-wK-gBo" secondAttribute="centerY" id="qfG-C1-Zcl"/>
+                                        <constraint firstItem="LGF-eh-NLk" firstAttribute="centerY" secondItem="cpf-RC-9N0" secondAttribute="centerY" id="zya-Vs-xSH"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -36,7 +68,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5GZ-QJ-AjU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-590" y="80"/>
+            <point key="canvasLocation" x="-591.20000000000005" y="79.610194902548727"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zhZ-xN-CHX">
@@ -55,4 +87,7 @@
             <point key="canvasLocation" x="-1542" y="80"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="audi" width="312" height="162"/>
+    </resources>
 </document>
