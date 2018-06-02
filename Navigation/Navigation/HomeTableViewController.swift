@@ -11,7 +11,6 @@ import UIKit
 class HomeTableViewController: UITableViewController {
     var cars:Array<String> = Array();
     var carsImages:Array<String> = Array();
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,6 +85,29 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
     
 }
     
+    
+    
+    // Navigation to detail view controller on click of row
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let destinationVC = storyBoard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController
+        destinationVC?.carName = cars[indexPath.row]
+        destinationVC?.title = "Details"
+        self.navigationController?.pushViewController(destinationVC!, animated: true)
+        
+        //self.performSegue(withIdentifier: "detailViewSegue", sender: nil)
+    }
+    
+    //Before segue results in navition from home view controller to detail view controller
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let destinationVC = segue.destination as? DetailViewController
+//        let sourceVC = segue.source as? HomeTableViewController
+//        let cell = sender as? CustomCell
+//        let indexPath = self.tableView.indexPath(for: cell!)
+//        destinationVC?.carName = cars[(indexPath?.row)!]
+//        print("Inside prepare method")
+//    }
     
 //    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
 //    {
