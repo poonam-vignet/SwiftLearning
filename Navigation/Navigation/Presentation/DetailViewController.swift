@@ -11,15 +11,30 @@ import UIKit
 class DetailViewController: UIViewController {
 
     var carName : String?
+    var carImage : String?
+    var price : Int?
+    var litersOrType : String?
+    var colorOfCar :String?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Features"
         if(carName != nil)
         {
-            print("Car Name is ",carName!)
-            viewControllerLabel.text = "This is " + carName!
+            print("Car Name : ",carName!)
+            viewControllerLabel.text = "Car Name : " + carName!
         }
+        if(price != nil)
+        {
+            carPriceLabel.text = "Car Price: \(price!)"
+        }
+        if(colorOfCar != nil)
+        {
+            colorOfCarLabel.text = "Color: \(colorOfCar!)"
+        }
+        
 
         // Do any additional setup after loading the view.
     }
@@ -31,6 +46,8 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var viewControllerLabel: UILabel!
     
+    @IBOutlet weak var carPriceLabel: UILabel!
+    @IBOutlet weak var colorOfCarLabel: UILabel!
     /*
     // MARK: - Navigation
 

@@ -25,6 +25,10 @@
                                     <constraint firstAttribute="width" constant="375" id="2Qh-sL-nDL"/>
                                     <constraint firstAttribute="height" constant="603" id="a9D-HZ-4WA"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="eZ3-hX-136"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="cgk-BM-gpD"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -34,7 +38,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="dxZ-fi-Wc5"/>
+                    <navigationItem key="navigationItem" id="dxZ-fi-Wc5">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="zy7-sd-bX9">
+                            <connections>
+                                <action selector="rightBarButtonClicked:" destination="BYZ-38-t0r" id="Drp-x5-apP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="rightBarButton" destination="zy7-sd-bX9" id="0OT-1Q-KrP"/>
+                        <outlet property="uiTableView" destination="amY-u2-9Ky" id="Qvn-DK-0Gg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

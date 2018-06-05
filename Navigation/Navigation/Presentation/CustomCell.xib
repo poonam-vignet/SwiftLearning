@@ -52,6 +52,7 @@
                     <constraint firstItem="a5y-8Y-T1h" firstAttribute="trailing" secondItem="D1f-a6-AWa" secondAttribute="trailing" id="pvW-hm-nhH"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="carNameLabel" destination="D1f-a6-AWa" id="0pL-Gy-9Ha"/>
