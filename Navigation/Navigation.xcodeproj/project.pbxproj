@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4C4DBC1620BAB9900095F087 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4DBC1420BAB9900095F087 /* CustomCell.swift */; };
 		4C4DBC1720BAB9900095F087 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C4DBC1520BAB9900095F087 /* CustomCell.xib */; };
+		4C729F9020CA83B6009D6F53 /* CarJsonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C729F8F20CA83B6009D6F53 /* CarJsonTableViewController.swift */; };
+		4C729F9320CA8406009D6F53 /* Cars.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C729F9220CA8406009D6F53 /* Cars.json */; };
 		4C7621A320A7F1260034D140 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7621A220A7F1260034D140 /* AppDelegate.swift */; };
 		4C7621A520A7F1260034D140 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7621A420A7F1260034D140 /* ViewController.swift */; };
 		4C7621A820A7F1260034D140 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C7621A620A7F1260034D140 /* Main.storyboard */; };
@@ -24,6 +26,8 @@
 /* Begin PBXFileReference section */
 		4C4DBC1420BAB9900095F087 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		4C4DBC1520BAB9900095F087 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
+		4C729F8F20CA83B6009D6F53 /* CarJsonTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarJsonTableViewController.swift; sourceTree = "<group>"; };
+		4C729F9220CA8406009D6F53 /* Cars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Cars.json; path = ../../../../../../Desktop/Cars.json; sourceTree = "<group>"; };
 		4C76219F20A7F1260034D140 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C7621A220A7F1260034D140 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C7621A420A7F1260034D140 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +63,14 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
+		4C729F9120CA83EF009D6F53 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				4C729F9220CA8406009D6F53 /* Cars.json */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
 		4C76219620A7F1260034D140 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +90,7 @@
 		4C7621A120A7F1260034D140 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				4C729F9120CA83EF009D6F53 /* assets */,
 				4C798F9120C29D250018C962 /* Models */,
 				4C4DBC1120BAA8FF0095F087 /* Presentation */,
 				4C7621A220A7F1260034D140 /* AppDelegate.swift */,
@@ -97,6 +110,7 @@
 				4C798F9220C29DB50018C962 /* HomeDictionaryViewController.swift */,
 				4C798F9420C2A0610018C962 /* Cars.swift */,
 				4C798F9620C2A6070018C962 /* CarsArrayOfObjectTableViewController.swift */,
+				4C729F8F20CA83B6009D6F53 /* CarJsonTableViewController.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -164,6 +178,7 @@
 				4C7621AA20A7F1260034D140 /* Assets.xcassets in Resources */,
 				4C4DBC1720BAB9900095F087 /* CustomCell.xib in Resources */,
 				4C7621A820A7F1260034D140 /* Main.storyboard in Resources */,
+				4C729F9320CA8406009D6F53 /* Cars.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +193,7 @@
 				4C7621B520A7F9700034D140 /* HomeTableViewController.swift in Sources */,
 				4C7621A520A7F1260034D140 /* ViewController.swift in Sources */,
 				4CC7C58820C24FE90082A7B1 /* DetailViewController.swift in Sources */,
+				4C729F9020CA83B6009D6F53 /* CarJsonTableViewController.swift in Sources */,
 				4C4DBC1620BAB9900095F087 /* CustomCell.swift in Sources */,
 				4C7621A320A7F1260034D140 /* AppDelegate.swift in Sources */,
 				4C798F9320C29DB50018C962 /* HomeDictionaryViewController.swift in Sources */,

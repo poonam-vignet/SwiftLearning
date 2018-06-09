@@ -58,6 +58,13 @@ class HomeDictionaryViewController: UITableViewController {
         car5.price = 2600000;
         
         
+        car1.colorOfCar = "Black"
+        car2.colorOfCar = "White"
+        car3.colorOfCar = "White"
+        car4.colorOfCar = "Black"
+        car5.colorOfCar = "Brown"
+        
+        
         carsDictionary[0] = car1
         carsDictionary[1] = car2
         carsDictionary[2] = car3
@@ -87,6 +94,19 @@ class HomeDictionaryViewController: UITableViewController {
         customeCarcell?.carNameLabel.isHidden = true
         
         return customeCarcell!
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        if let  detailVC = storyBoard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController
+        {
+            detailVC.carName = (carsDictionary[indexPath.row])?.carName
+            detailVC.price = (carsDictionary[indexPath.row])?.price
+            detailVC.colorOfCar = (carsDictionary[indexPath.row])?.colorOfCar
+            navigationController?.pushViewController(detailVC, animated: true)
+        }
         
     }
     

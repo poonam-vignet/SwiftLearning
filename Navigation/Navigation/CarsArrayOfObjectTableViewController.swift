@@ -49,43 +49,43 @@ class CarsArrayOfObjectTableViewController: UITableViewController {
     
     func fillArray()
     {
-        let car1 = Cars();
-        let car2 = Cars();
-        let car3 = Cars();
-        let car4 = Cars();
-        let car5 = Cars();
+        let audi = Cars();
+        let bmw = Cars();
+        let mercedes = Cars();
+        let rangerover = Cars();
+        let fortuner = Cars();
         
-        car1.carName = "AUDI"
-        car2.carName = "BMW"
-        car3.carName = "MERCEDES"
-        car4.carName = "RANGEROVER"
-        car5.carName = "FORTUNER"
+        audi.carName = "AUDI"
+        bmw.carName = "BMW"
+        mercedes.carName = "MERCEDES"
+        rangerover.carName = "RANGEROVER"
+        fortuner.carName = "FORTUNER"
         
-        car1.carImage = "audi";
-        car2.carImage = "bmw";
-        car3.carImage = "mercedes";
-        car4.carImage = "rangerover";
-        car5.carImage = "fortuner";
-        
-        
-        car1.price = 5506000;
-        car2.price = 3400000;
-        car3.price = 3000000;
-        car4.price = 4400000;
-        car5.price = 2600000;
+        audi.carImage = "audi";
+        bmw.carImage = "bmw";
+        mercedes.carImage = "mercedes";
+        rangerover.carImage = "rangerover";
+        fortuner.carImage = "fortuner";
         
         
-        car1.colorOfCar = "Black"
-        car2.colorOfCar = "White"
-        car3.colorOfCar = "White"
-        car4.colorOfCar = "Black"
-        car5.colorOfCar = "Brown"
+        audi.price = 5506000;
+        bmw.price = 3400000;
+        mercedes.price = 3000000;
+        rangerover.price = 4400000;
+        fortuner.price = 2600000;
         
-        carsArray.append(car1)
-        carsArray.append(car2)
-        carsArray.append(car3)
-        carsArray.append(car4)
-        carsArray.append(car5)
+        
+        audi.colorOfCar = "Black"
+        bmw.colorOfCar = "White"
+        mercedes.colorOfCar = "White"
+        rangerover.colorOfCar = "Black"
+        fortuner.colorOfCar = "Brown"
+        
+        carsArray.append(audi)
+        carsArray.append(bmw)
+        carsArray.append(mercedes)
+        carsArray.append(rangerover)
+        carsArray.append(fortuner)
         
         
         

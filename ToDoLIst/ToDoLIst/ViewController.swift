@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 
+//We have used view controller and added table view
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
@@ -18,7 +19,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     lazy  var refreshControl : UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControlEvents.valueChanged)
-        refreshControl.tintColor = UIColor.red
+        refreshControl.tintColor = UIColor.blue
         return refreshControl
     }()
     
@@ -63,7 +64,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]?
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? // this is optional , we can have on row actions
     {
         //Action one
         
@@ -91,7 +92,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "The List"
+        //2nd way of regstering cell.
         uiTableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        
+        uiTableView.refreshControl = refreshControl;
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -99,6 +103,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    //Action for add button
     @IBAction func rightBarButtonClicked(_ sender: UIBarButtonItem) {
         
         let alert = UIAlertController(title: "Add", message: "Add new Item", preferredStyle: .alert)
@@ -131,7 +136,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let entity = NSEntityDescription.entity(forEntityName: "List", in: managedContext!)
         let record = NSManagedObject(entity: entity!, insertInto: managedContext)
         
-        record.setValue(name,forKeyPath: "name")
+        record.setValue(name,forKeyPath: "name") // name is name of attribute
         do{
             try managedContext?.save()
             list.append(record)
