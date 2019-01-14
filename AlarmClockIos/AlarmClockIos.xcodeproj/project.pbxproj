@@ -16,6 +16,7 @@
 		4C417EFF2115830400BDC867 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C417EFD2115830400BDC867 /* LaunchScreen.storyboard */; };
 		4C417F0821158E6800BDC867 /* HomeScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C417F0721158E6800BDC867 /* HomeScreenController.swift */; };
 		4C417F0A211590FD00BDC867 /* WorldClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C417F09211590FD00BDC867 /* WorldClockViewController.swift */; };
+		4C67A86C21C939D200694855 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C67A86B21C939D200694855 /* Clock.swift */; };
 		4C6B5B0C211EC35700444972 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6B5B0A211EC35700444972 /* AlarmTableViewCell.swift */; };
 		4C6B5B0D211EC35700444972 /* AlarmTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C6B5B0B211EC35700444972 /* AlarmTableViewCell.xib */; };
 		4C6B5B10211EC8CC00444972 /* SpaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6B5B0E211EC8CC00444972 /* SpaceTableViewCell.swift */; };
@@ -35,6 +36,7 @@
 		4C417F002115830400BDC867 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C417F0721158E6800BDC867 /* HomeScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenController.swift; sourceTree = "<group>"; };
 		4C417F09211590FD00BDC867 /* WorldClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockViewController.swift; sourceTree = "<group>"; };
+		4C67A86B21C939D200694855 /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 		4C6B5B0A211EC35700444972 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
 		4C6B5B0B211EC35700444972 /* AlarmTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmTableViewCell.xib; sourceTree = "<group>"; };
 		4C6B5B0E211EC8CC00444972 /* SpaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceTableViewCell.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 		4C417EF32115830400BDC867 /* AlarmClockIos */ = {
 			isa = PBXGroup;
 			children = (
+				4C67A86A21C939AD00694855 /* Classes */,
 				4C0C73182121499100FF4CCF /* StoryBoards */,
 				4C36377F211EB733008824D3 /* Cells */,
 				4C417F062115837A00BDC867 /* ViewControllers */,
@@ -113,6 +116,14 @@
 				4C9B5EF7212308A700D70141 /* CountiesViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4C67A86A21C939AD00694855 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4C67A86B21C939D200694855 /* Clock.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +204,7 @@
 				4C9B5EF8212308A700D70141 /* CountiesViewController.swift in Sources */,
 				4C417F0A211590FD00BDC867 /* WorldClockViewController.swift in Sources */,
 				4C417EF72115830400BDC867 /* ViewController.swift in Sources */,
+				4C67A86C21C939D200694855 /* Clock.swift in Sources */,
 				4C417EF52115830400BDC867 /* AppDelegate.swift in Sources */,
 				4C417F0821158E6800BDC867 /* HomeScreenController.swift in Sources */,
 				4C6B5B10211EC8CC00444972 /* SpaceTableViewCell.swift in Sources */,

@@ -9,7 +9,10 @@
 import UIKit
 
 class AlarmTableViewCell: UITableViewCell {
-
+     @IBOutlet var ClockTime: UILabel!
+    
+    @IBOutlet var ClockShortTime: UILabel!
+    @IBOutlet var ZoneNAme: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

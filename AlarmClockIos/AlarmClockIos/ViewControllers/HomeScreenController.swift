@@ -12,10 +12,9 @@ class HomeScreenController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        var worldClockViewController = WorldClockViewController();
-//        var controllers = [worldClockViewController]
-//
-//        self.viewControllers = viewControllers;
+         var worldClockViewController = WorldClockViewController();
+        var controllers = [worldClockViewController]
+        self.viewControllers = viewControllers;
         
         
 //        var controllers = viewControllers;

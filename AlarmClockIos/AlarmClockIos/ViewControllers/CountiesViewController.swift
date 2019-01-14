@@ -8,20 +8,22 @@
 
 import UIKit
 
+
 class CountiesViewController: UIViewController,UITableViewDataSource,UISearchBarDelegate,UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-    
+    var arrayOfList = TimeZone.knownTimeZoneIdentifiers;
     var searchActive : Bool = false
     var data = ["India","New York","San Jose","Chicago","Spain","Austin","India","New York","San Jose","Chicago","Spain","Austin"]
     var filtered:[String] = []
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
+        data = arrayOfList;
       //  tableView.register(UINib(nibName: "Cell", bundle: nil), forCellReuseIdentifier: "Cell")
 //        tableView.re
 //        tableView.register(nil, forCellReuseIdentifier: "Cell")
@@ -91,6 +93,38 @@ class CountiesViewController: UIViewController,UITableViewDataSource,UISearchBar
         return cell;
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedZoneCell = tableView.cellForRow(at: indexPath) as! UITableViewCell;
+        let selectedZoneName = selectedZoneCell.textLabel?.text;
+        let  seletctedTZ:TimeZone = TimeZone(identifier: selectedZoneName!)!
+        
+        let dateFormatter = DateFormatter()
+       //dateFormatter.dateFormat = "dd:MM:yyy hh:mm:ss"
+        dateFormatter.dateFormat = "HH:mm a"
+        dateFormatter.timeZone = seletctedTZ
+        dateFormatter.string(from: Date())
+        print("Time of selected zone \(seletctedTZ) is",dateFormatter.string(from: Date()))
+        
+        let storyBoard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let homeController = storyBoard.instantiateViewController(withIdentifier: "HomeScreenController") as! HomeScreenController
+        let worldClock = (homeController.viewControllers![0]).childViewControllers[0] as! WorldClockViewController ;
+    
+        
+        var clockObject:Clock = Clock();
+        clockObject.completeTime = dateFormatter.string(from: Date());
+        clockObject.shortTime = dateFormatter.string(from: Date());
+        clockObject.zonename = String(describing: seletctedTZ);
+        
+        
+        WorldClockViewController.listOfClocks.append(clockObject)
+//       WorldClockViewController.listOfClock.append(dateFormatter.string(from: Date()))
+    
+        
+        self.present(homeController, animated: true, completion: nil)
+       // self.navigationController?.popToRootViewController(animated: true);
+        //WorldClockViewController
+        
+    }
     /*
     // MARK: - Navigation
 

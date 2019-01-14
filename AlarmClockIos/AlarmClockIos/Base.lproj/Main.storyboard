@@ -87,7 +87,7 @@
         <!--Wold Clock-->
         <scene sceneID="dB4-eS-4fc">
             <objects>
-                <tableViewController id="3Rq-bi-c9t" customClass="WorldClockViewController" customModule="AlarmClockIos" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="WorldClock" id="3Rq-bi-c9t" customClass="WorldClockViewController" customModule="AlarmClockIos" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="IR6-Q5-MCX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -130,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KKq-0p-bTQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1039" y="554"/>
+            <point key="canvasLocation" x="-1201" y="937"/>
         </scene>
         <!--World Clock-->
         <scene sceneID="Hhh-Ed-ZQq">
@@ -187,7 +187,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="06W-4f-OCY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1038.4000000000001" y="-197.00149925037482"/>
+            <point key="canvasLocation" x="-1489" y="-121"/>
         </scene>
     </scenes>
 </document>

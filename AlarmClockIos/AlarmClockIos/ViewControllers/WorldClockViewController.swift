@@ -9,6 +9,10 @@
 import UIKit
 
 class WorldClockViewController: UITableViewController {
+    static var listOfClocks:[Clock] = [];
+
+    public var listOfClock:[String] = [];
+    
     @IBAction func EditClicked(_ sender: Any) {
     }
     
@@ -40,14 +44,21 @@ class WorldClockViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4;
+        return WorldClockViewController.listOfClocks.count;
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = UITableViewCell();
+        var cell = UITableViewCell();
+        
         if((indexPath.row%2)==0)
         {
-            cell = tableView.dequeueReusableCell(withIdentifier: "AlarmTableViewCell", for: indexPath) as! AlarmTableViewCell
+            let cell1:AlarmTableViewCell = tableView.dequeueReusableCell(withIdentifier: "AlarmTableViewCell", for: indexPath) as! AlarmTableViewCell
+            
+            var clockItem = WorldClockViewController.listOfClocks[indexPath.row]
+            cell1.ClockTime.text =  (WorldClockViewController.listOfClocks.count==0 ?  "": clockItem.completeTime)
+            cell1.ZoneNAme.text = (WorldClockViewController.listOfClocks.count==0 ?  "": clockItem.zonename)
+            cell = cell1;
+          
         }
             
             

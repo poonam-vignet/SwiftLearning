@@ -7,3 +7,16 @@
 //
 
 import Foundation
+class Clock
+{
+    var completeTime:String;
+    var shortTime:String;
+    var zonename:String;
+    init()
+    {
+        completeTime = "";
+        shortTime = "";
+        zonename = "";
+    }
+    
+}
