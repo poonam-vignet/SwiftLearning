@@ -16,6 +16,7 @@ class HomeDictionaryViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Dictionary"
         fillDictionary();
         tableView.register(UINib(nibName: "CustomCell",bundle:nil) , forCellReuseIdentifier: "CustomCellIdentifier")
         

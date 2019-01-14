@@ -13,6 +13,7 @@ class CarJsonTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "JSON"
          tableView.register(UINib(nibName: "CustomCell",bundle:nil) , forCellReuseIdentifier: "CustomCellIdentifier")
         
         if let path = Bundle.main.path(forResource: "Cars", ofType: "json") {

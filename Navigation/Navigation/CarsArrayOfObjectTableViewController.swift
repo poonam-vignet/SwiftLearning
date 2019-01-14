@@ -15,6 +15,7 @@ class CarsArrayOfObjectTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "ArrayOfObject"
         fillArray();
         tableView.register(UINib(nibName :"CustomCell",bundle:nil),
                            forCellReuseIdentifier:"CustomCellIdentifier")

@@ -1,0 +1,6 @@
+framework module Pods_GoogleLanguageTranslator {
+  umbrella header "Pods-GoogleLanguageTranslator-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SpeechToText" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C3c-hG-kOf">
+                                <rect key="frame" x="152" y="64" width="71" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="xSn-fR-IwV"/>
+                                </constraints>
+                                <state key="normal" title="Start/Stop"/>
+                                <connections>
+                                    <action selector="StartTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6yZ-bu-QO5"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hcs-nm-6Ae">
+                                <rect key="frame" x="-0.5" y="143.5" width="375" height="380"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Hcs-nm-6Ae" firstAttribute="top" secondItem="C3c-hG-kOf" secondAttribute="bottom" constant="49.5" id="72V-YS-zKU"/>
+                            <constraint firstItem="C3c-hG-kOf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="44" id="8ha-Z1-2rB"/>
+                            <constraint firstItem="Hcs-nm-6Ae" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="D2k-Xy-jxq"/>
+                            <constraint firstItem="Hcs-nm-6Ae" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="LTr-7K-Dhx"/>
+                            <constraint firstItem="Hcs-nm-6Ae" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jDx-oC-WEm"/>
+                            <constraint firstItem="C3c-hG-kOf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tSz-jY-ybg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="DetectedText" destination="Hcs-nm-6Ae" id="Sz2-dd-L8D"/>
+                        <outlet property="StartButton" destination="C3c-hG-kOf" id="dI9-Ci-eGx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="131.78410794602701"/>
+        </scene>
+    </scenes>
+</document>

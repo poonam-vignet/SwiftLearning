@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kwU-EX-39C">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Chosse a city-->
+        <scene sceneID="qOg-Wc-IYb">
+            <objects>
+                <tableViewController storyboardIdentifier="CountryList" id="KnC-Tb-gMN" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qNW-xw-zhy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableFooterView" contentMode="redraw" text="" id="Oe4-v7-MMa">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <connections>
+                            <outlet property="dataSource" destination="KnC-Tb-gMN" id="0JI-ji-akv"/>
+                            <outlet property="delegate" destination="KnC-Tb-gMN" id="Ffr-Yc-woZ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Chosse a city" id="JpE-1G-AvL"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gNO-Jd-pDs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-543.20000000000005" y="903.59820089955031"/>
+        </scene>
+        <!--Choose a City-->
+        <scene sceneID="tgf-x8-98m">
+            <objects>
+                <viewController storyboardIdentifier="CountiesViewController" id="0So-ep-zaE" customClass="CountiesViewController" customModule="AlarmClockIos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eis-gi-70M">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gxr-N6-axz">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" barStyle="black" id="on1-nN-kmW">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="gma-Pb-VqT">
+                                        <rect key="frame" x="0.0" y="84" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gma-Pb-VqT" id="P9c-Bq-lfl">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Oj3-Sf-cVF" firstAttribute="trailing" secondItem="gxr-N6-axz" secondAttribute="trailing" id="Qcq-xX-B3d"/>
+                            <constraint firstItem="gxr-N6-axz" firstAttribute="leading" secondItem="Oj3-Sf-cVF" secondAttribute="leading" id="hF2-Hj-K7p"/>
+                            <constraint firstItem="Oj3-Sf-cVF" firstAttribute="bottom" secondItem="gxr-N6-axz" secondAttribute="bottom" id="u2T-ws-NdX"/>
+                            <constraint firstItem="gxr-N6-axz" firstAttribute="top" secondItem="Oj3-Sf-cVF" secondAttribute="top" id="vNV-dj-I5r"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Oj3-Sf-cVF"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Choose a City" id="SnN-1M-Ctj">
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="cancel" id="NcU-Ql-7NF">
+                            <color key="tintColor" red="0.80784313730000001" green="0.58823529409999997" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="on1-nN-kmW" id="Q43-vV-KFf"/>
+                        <outlet property="tableView" destination="gxr-N6-axz" id="DMM-oc-eZf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="edB-AE-Dfd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1154" y="869"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ktn-pT-bv1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XsQ-2i-tGq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="bhB-0U-Z8e">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fos-uY-HgK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2559" y="870"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KHH-7l-duf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kwU-EX-39C" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="Bg4-Dr-RX4">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0So-ep-zaE" kind="relationship" relationship="rootViewController" id="abp-9O-um3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E4f-Jm-9cu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1879" y="869"/>
+        </scene>
+    </scenes>
+</document>
