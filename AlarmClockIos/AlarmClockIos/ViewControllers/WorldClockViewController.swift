@@ -12,6 +12,7 @@ class WorldClockViewController: UITableViewController {
     static var listOfClocks:[Clock] = [];
 
     public var listOfClock:[String] = [];
+    static var count:Int = 0;
     
     @IBAction func EditClicked(_ sender: Any) {
     }
@@ -25,11 +26,8 @@ class WorldClockViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.register(UINib(nibName: "AlarmTableViewCell", bundle: nil), forCellReuseIdentifier: "AlarmTableViewCell")
         tableView.register(UINib(nibName: "SpaceTableViewCell", bundle: nil), forCellReuseIdentifier: "SpaceTableViewCell")
-        
-        
         
         // Do any additional setup after loading the view.
     }
@@ -44,7 +42,10 @@ class WorldClockViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return WorldClockViewController.listOfClocks.count;
+        
+        //We need to add blank screen alternatively hence make number of rows as double of list of clocks
+        return WorldClockViewController.listOfClocks.count + WorldClockViewController.listOfClocks.count;
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -54,34 +55,53 @@ class WorldClockViewController: UITableViewController {
         {
             let cell1:AlarmTableViewCell = tableView.dequeueReusableCell(withIdentifier: "AlarmTableViewCell", for: indexPath) as! AlarmTableViewCell
             
-            var clockItem = WorldClockViewController.listOfClocks[indexPath.row]
+            var clockItem = WorldClockViewController.listOfClocks[WorldClockViewController.count]
             cell1.ClockTime.text =  (WorldClockViewController.listOfClocks.count==0 ?  "": clockItem.completeTime)
             cell1.ZoneNAme.text = (WorldClockViewController.listOfClocks.count==0 ?  "": clockItem.zonename)
             cell = cell1;
-          
-        }
             
+            
+            WorldClockViewController.count = WorldClockViewController.count + 1
+            if(WorldClockViewController.count == WorldClockViewController.listOfClocks.count)
+            {
+                WorldClockViewController.count = 0;
+            }
+            
+        }
             
         else
         {
+            //Add blank cell alternatively
             cell = tableView.dequeueReusableCell(withIdentifier: "SpaceTableViewCell", for: indexPath) as! SpaceTableViewCell
             
         }
         return cell;
         
     }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if((indexPath.row%2)==0)
         {
+            // alarm clock cell
             return 60;
         }
         else
         {
+            // Blank cell
             return 10;
         }
     }
     
-    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if(editingStyle == UITableViewCellEditingStyle.delete)
+        {
+            
+        //We are having balank cell alternatively . hence divide by 2
+          WorldClockViewController.listOfClocks.remove(at:indexPath.row/2 )
+            
+            tableView.reloadData();
+        }
+    }
     
     /*
      // MARK: - Navigation
