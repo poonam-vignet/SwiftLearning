@@ -58,9 +58,10 @@ class WorldClockViewController: UITableViewController {
         {
             let cell1:AlarmTableViewCell = tableView.dequeueReusableCell(withIdentifier: "AlarmTableViewCell", for: indexPath) as! AlarmTableViewCell
             
-            var clockItem = WorldClockViewController.listOfClocks[WorldClockViewController.count]
+            let clockItem = WorldClockViewController.listOfClocks[WorldClockViewController.count]
             cell1.ClockTime.text =  (WorldClockViewController.listOfClocks.count==0 ?  "": clockItem.completeTime)
             cell1.ZoneNAme.text = (WorldClockViewController.listOfClocks.count==0 ?  "": clockItem.zonename)
+            cell1.ClockShortTime.text = (WorldClockViewController.listOfClocks.count==0 ?  "": clockItem.shortTime)
             cell = cell1;
             
             
@@ -100,7 +101,9 @@ class WorldClockViewController: UITableViewController {
         {
             
         //We are having balank cell alternatively . hence divide by 2
-          WorldClockViewController.listOfClocks.remove(at:indexPath.row/2 )
+          WorldClockViewController.listOfClocks.remove(at:indexPath.row/2)
+          tableView.reloadData()
+
         }
     }
     
@@ -113,14 +116,6 @@ class WorldClockViewController: UITableViewController {
 
     }
     
-//    override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool
-//    {
-//        if(indexPath.row%2 != 0)
-//        {
-//            return false
-//        }
-//        return true
-//    }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         if(indexPath.row%2 != 0)
