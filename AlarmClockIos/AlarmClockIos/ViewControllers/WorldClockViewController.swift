@@ -15,6 +15,9 @@ class WorldClockViewController: UITableViewController {
     static var count:Int = 0;
     
     @IBAction func EditClicked(_ sender: Any) {
+       
+        tableView.isEditing = true;
+
     }
     
     @IBAction func AddClicked(_ sender: Any) {
@@ -98,11 +101,41 @@ class WorldClockViewController: UITableViewController {
             
         //We are having balank cell alternatively . hence divide by 2
           WorldClockViewController.listOfClocks.remove(at:indexPath.row/2 )
-            
-            tableView.reloadData();
         }
     }
     
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let objectToBeMoved =
+        WorldClockViewController.listOfClocks[sourceIndexPath.row/2]
+        WorldClockViewController.listOfClocks.remove(at: sourceIndexPath.row/2)
+        WorldClockViewController.listOfClocks.insert(objectToBeMoved, at: destinationIndexPath.row/2)
+        tableView.reloadData();
+
+    }
+    
+//    override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool
+//    {
+//        if(indexPath.row%2 != 0)
+//        {
+//            return false
+//        }
+//        return true
+//    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if(indexPath.row%2 != 0)
+        {
+            return false;
+        }
+        return true
+    }
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        if(self.isEditing)
+        {
+            navigationItem.leftBarButtonItem?.title = "Done"
+            navigationItem.leftBarButtonItem?.style = UIBarButtonItemStyle.done
+        }
+    }
     /*
      // MARK: - Navigation
      
