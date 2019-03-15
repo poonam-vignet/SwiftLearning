@@ -74,7 +74,7 @@ print(arrayOfNumbers)
 arrayOfNumbers.append("Three")
 
 //-----------------------------
-var arrayInt:Array<Int>= Array()
+var arrayInt:Array<Int> = Array()
 arrayInt.append(55)
 
 if arrayOfNumbers.isEmpty
