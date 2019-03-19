@@ -15,8 +15,38 @@
 import Foundation
 class ConcentrationViewModel
 {
-    var cards = [Card]()
-    var indexOfOneAndOnlyFaceUpCard:Int? // case for matching , we need to have senarioc where only one card is already face up
+  private(set) var cards = [Card]()
+  private var indexOfOneAndOnlyFaceUpCard:Int?
+  {
+    get{
+        var foundIndex:Int?
+        for index in cards.indices
+         {
+            if cards[index].isFaceUp
+            {
+                if foundIndex == nil
+                {
+                  foundIndex = index
+                }else
+                {
+                    return nil
+                }
+            }
+            
+        }
+        return foundIndex
+      }
+     set(newValueOfIndex)
+      {
+            for index in cards.indices
+            {
+                cards[index].isFaceUp = (index == newValueOfIndex)
+            }
+
+     }
+    
+}
+    // case for matching , we need to have senarioc where only one card is already face up
     
     func ChooseCard(at index:Int)
     {
@@ -29,6 +59,7 @@ class ConcentrationViewModel
         //        cards[index].isFaceUp = true
         //       }
         
+        assert(cards.indices.contains(index),"ConcentrationViewModel.ChooseCard, index passed \(index) is not present in cards")
         
         if !cards[index].isMatched
         {        //Case 3:
@@ -41,14 +72,16 @@ class ConcentrationViewModel
                     cards[index].isMatched = true
                 }
                 cards[index].isFaceUp = true; //need to flip card a face up
-                indexOfOneAndOnlyFaceUpCard = nil
+               // indexOfOneAndOnlyFaceUpCard = nil
+                //(commented when computed prop for indexOfOneAndOnlyFaceUpCard were added)
             }
             else // case 1 and 2
             {
-                for faceToDown in cards.indices{
-                    cards[faceToDown].isFaceUp = false
-                }
-                cards[index].isFaceUp = true
+                //(commented when computed prop for indexOfOneAndOnlyFaceUpCard were added)
+//                for faceToDown in cards.indices{
+//                    cards[faceToDown].isFaceUp = false
+//                }
+//                cards[index].isFaceUp = true
                 indexOfOneAndOnlyFaceUpCard = index
             }
             
@@ -58,6 +91,7 @@ class ConcentrationViewModel
         
     }
     init(numberOfPairsOfCards:Int) {
+        assert(numberOfPairsOfCards>0,"ConcentrationViewModel : number of pairs must be greater than 0")
         for _ in 0..<numberOfPairsOfCards{
             let card = Card(identifier: Card.getUniqueIdentifier())
             cards += [card, card]

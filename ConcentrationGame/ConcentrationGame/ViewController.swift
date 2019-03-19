@@ -14,20 +14,26 @@ class ViewController: UIViewController
     override func viewDidLoad() {
         updateViewFromModel()
     }
-    var flipCount = 0
+    
+   private(set) var flipCount = 0
     {
         didSet{
             flipCountLabel.text = "Flip Count : \(flipCount)"
         }
     }
     
-    @IBOutlet var buttonCollection: [UIButton]!
-    @IBOutlet weak var flipCountLabel: UILabel!
+    @IBOutlet private var buttonCollection: [UIButton]!
+    @IBOutlet private weak var flipCountLabel: UILabel!
     
     
-   lazy var game:ConcentrationViewModel = ConcentrationViewModel(numberOfPairsOfCards: (buttonCollection.count+1)/2)
+   private lazy var game:ConcentrationViewModel = ConcentrationViewModel(numberOfPairsOfCards:numberOfPairsOfCards)
     
     
+    var numberOfPairsOfCards :Int{
+       // get{(// if you have only Get(readonly properties) you can ignore get)
+            return (buttonCollection.count+1)/2
+       // }
+    }
     @IBAction func CardTouched(_ sender: UIButton) {
         print("Ghost button pressed")
         flipCount += 1
@@ -35,20 +41,17 @@ class ViewController: UIViewController
         if let cardIndex = buttonCollection.index(of: sender){
         print("index of button clicked is \(cardIndex)")
        // FlipCard(emoji:emojiChoices[cardIndex], on: sender)
-            
-            
+  
             //After MVC
             game.ChooseCard(at: cardIndex)
             updateViewFromModel()
-            
-            
+ 
         }
         else{
                print("Button is not in button collection")
 
         }
-        
-       
+ 
         
       //  flipCountLabel.text = "Flips : \(flipCount)"// instead use property observer
     }
@@ -74,7 +77,7 @@ class ViewController: UIViewController
 //    }
     
     //MVC
-    func updateViewFromModel(){
+    private func updateViewFromModel(){
         for index in buttonCollection.indices{
             var button = buttonCollection[index]
             let card = game.cards[index]
@@ -93,18 +96,33 @@ class ViewController: UIViewController
         }
     }
     
-    var emojiChoices = ["👻","👹","👿","😎","👹","🐶","🐥","🐹","😇","😱"]
+    private var emojiChoices = ["👻","👹","👿","😎","👹","🐶","🐥","🐹","😇","😱"]
 
-    var emojis = [Int:String]() // Identifier and Emoji
-    func getEmoji(for card :Card) -> String {
+    private var emojis = [Int:String]() // Identifier and Emoji
+    private func getEmoji(for card :Card) -> String {
         if emojis[card.identifier] == nil,emojiChoices.count>0
         {
-        let randomNumber = Int(arc4random_uniform(UInt32(emojiChoices.count)))
-        emojis[card.identifier] = emojiChoices.remove(at: randomNumber)
-        
+        emojis[card.identifier] = emojiChoices.remove(at: emojiChoices.count.arc4random)
+    
         }
      return emojis[card.identifier] ?? "?"
     }
     
+}
+extension Int
+{
+    var arc4random:Int
+    {
+        if self > 0{
+        return Int(arc4random_uniform(UInt32(self)))
+        }
+        else if self < 0
+        {
+        return Int(arc4random_uniform(UInt32(abs(self))))
+        }else
+        {
+        return 0
+        }
+    }
 }
 

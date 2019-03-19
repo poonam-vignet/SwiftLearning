@@ -13,7 +13,7 @@ struct Card
     var isMatched:Bool = false
     var identifier: Int
     
-     static var identifierGenerator = 0
+    private static var identifierGenerator = 0
     
     static func getUniqueIdentifier()->Int
     {

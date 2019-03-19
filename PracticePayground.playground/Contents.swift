@@ -347,3 +347,25 @@ case "b","c","d","f","g","h":
 default:
     print("neither vowel nor consonant")
 }
+
+
+//Stord properties : are the (normal var) variables where value is stored in memory, COmputed properties(getter setter) values are not stored any where its value is calculated using code in side get
+
+//Access Control
+//Internal : by default internal is the access control : accessible by any object in app or framework
+//Private :  only callable from a object
+//privateSet : accessible outside the class as readonly
+//File private : accessible by any code in source file
+//public (for framworks) :can be used outside the framework
+//open : public and object outside the frameowrk can sub class this
+
+
+//Extensions: // add vars and functions to existing classes
+
+//Enums : it can have case, vars(only computed properties)
+//Mutating enum () mutating self requires mutating func
+// Optional is kind of enum with 2 cases : case 1. some value, case 2. nil
+//Optional chaning : ?.?.?
+//Reference counting :
+//Memory mangments : a. strong b. weak, c. unowned (memory cycles : learn more about it)
+
