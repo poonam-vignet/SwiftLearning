@@ -11,8 +11,8 @@ import UIKit
 //This is a custom view in storyboary we have taken a normal UIView and set its class as this class
 class PlayingCardView: UIView {
     
-    var rank:Int = 5 { didSet{ setNeedsDisplay();setNeedsLayout()}}
-    var suit:String = "♥️" { didSet{ setNeedsDisplay();setNeedsLayout()}}
+    var rank:Int = 11 { didSet{ setNeedsDisplay();setNeedsLayout()}}
+    var suit:String = "♠" { didSet{ setNeedsDisplay();setNeedsLayout()}}
     var isFaceUp:Bool = true { didSet{ setNeedsDisplay();setNeedsLayout()}}
     
     
@@ -37,7 +37,7 @@ class PlayingCardView: UIView {
     
     private lazy var upperLeftLabel = createCornerLable()
     private lazy var lowerRightLabel = createCornerLable()
-
+    
     
     //Createlabel
     func createCornerLable()->UILabel{
@@ -49,16 +49,38 @@ class PlayingCardView: UIView {
     //since we added subview we need to redraw it at some situvations also we need to postion it every time bounds chanes
     override func layoutSubviews() {
         super.layoutSubviews()
+        
         configureLabel(upperLeftLabel)
         //This will position the label in coordinate sys of superview
         upperLeftLabel.frame.origin = bounds.origin.offSetBy(dx: cornerOffset, dy: cornerOffset)
         
+        //we set origit to maxX, maxY, then we shifted ot to offset insidethe rec hence -, againshofted it to labels origin i.e - its width and -height
+        
+        configureLabel(lowerRightLabel)
+        
+        //but we need to rotate lowerleft string to look it like card : use transfor for scale, rotate etc a view
+        //
+        //        lowerRightLabel.transform = CGAffineTransform.identity.rotated(by: CGFloat.pi)// wrong as oring is shifted
+        
+        //We first need to again shift the origin to offset and then rotate
+        lowerRightLabel.transform = CGAffineTransform.identity
+        .translatedBy(x: lowerRightLabel.frame.size.width, y: lowerRightLabel.frame.size.height)
+        .rotated(by: CGFloat.pi)
+        
+         lowerRightLabel.frame.origin = CGPoint(x: bounds.maxX, y: bounds.maxY).offSetBy(dx: -cornerOffset, dy: -cornerOffset).offSetBy(dx: -lowerRightLabel.frame.size.width, dy: -lowerRightLabel.frame.size.height)
     }
     func configureLabel(_ label:UILabel){
         label.attributedText = cornerString // set text
         label.bounds.size = CGSize.zero
         label.sizeToFit()// to fit text in label but we need to make width of label to 0 before applying this func
         label.isHidden = !isFaceUp
+    }
+    
+    
+    //observs whether trait changes , say user increesd size of text in accessibility :ios setting, the app should reflect that
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        setNeedsDisplay()
+        setNeedsLayout()
     }
     
     
@@ -74,6 +96,14 @@ class PlayingCardView: UIView {
         
         //When we run we don't see rounded rect on screen we see a rectangular white view, actually we are drawing a rectangular view ehich is white on white view taken in story board controller we need to make background color for view in story board as clear and its opaqe to false which is by default checked in storyboard
         
+        
+        //Draw image
+        if let faceCardImage = UIImage(named: rankString+suit){
+            faceCardImage.draw(in:bounds.zoom(by: SizeRatio.facecardImageSizeToBoundsSize))
+            
+            //faceCardImage.
+        
+        }
     }
     
     
@@ -117,7 +147,7 @@ extension PlayingCardView{
         static let cornerFontSizeToBoundsHeight:CGFloat = 0.085
         static let cornerRadiusToBoundsHeight:CGFloat = 0.06
         static let cornerOffsetToCornerRadius:CGFloat = 0.33
-        static let facecardImageSizeToBoundsSize:CGFloat = 0.75
+        static let facecardImageSizeToBoundsSize:CGFloat = 0.95
     }
     
     private var cornerRadius: CGFloat {
@@ -151,7 +181,7 @@ extension CGRect{
     var RightHalf:CGRect{
         return CGRect(x:midX, y: minY, width: width/2, height: height)
     }
-  
+    
     
     //Returns a rectangle that is smaller or larger than the source rectangle, with the same center point.
     

@@ -369,3 +369,208 @@ default:
 //Reference counting :
 //Memory mangments : a. strong b. weak, c. unowned (memory cycles : learn more about it)
 
+//Struct are value type , when moved : a copy is created but it will inefficent to create multiple copies, so, swift creates copy of struct only on write(which means when struct is actually changed or mutated )
+
+//protocol:
+//need to declare vars anf func, class or struct can conform to protocol, in struct we have to make func as mutating as struct is pass by value, for class we doest not need mutating. we can have init in protocol, but if the class is conforming to protocol then we need to declare it as required_init to make sure all the sub classes of that class implements init of protocol. if dont want struct to conform to protocol (//we can extend protocol as class)
+
+protocol Movable {
+   mutating func moveTo()
+}
+class Car : Movable{
+    func moveTo() {
+        print("Moves car")
+
+    }
+    
+}
+    struct Shape:Movable
+    {
+      mutating func moveTo() {
+            print("Moves shape")
+
+        }
+    }
+
+var someCar : Car = Car()
+var someShape :Shape = Shape()
+var moving :Movable = someCar
+moving.moveTo()
+
+
+//Delegation protocol to bind ViewController and View
+// making things hasahble(equatable)
+//Multiple inheritance with protocol
+//We can have default implementation of method in protocol :How?? : by having extension of protocol : restriction: not strorage for protocols
+//Functional programming
+
+//String : String is a struct
+//Indexing for string is not int but it is of type String.Index
+
+//startIndex, endIndex, .index(firstIndex,offsetBy:3),.component(seperatedBy :"")[1] // take second element after seperation var charArray = Array(someString) : returns array of characters
+
+//NSAttributed string: takes string and attributes
+// Seeting value of property (initialization ) does not cause calling od did set
+
+
+//Function types
+var SomeFuncVar :(Double) ->Double // func as type
+SomeFuncVar = sqrt
+SomeFuncVar(4)
+
+//Similarly consider a senrio where we dont have in built function like sqrt as above
+//For Eg
+func changeSign(operand:Double)->Double{
+    return -operand
+}
+
+var ChangeSignFunc:(Double)->Double
+//ChangeSignFunc = changeSign
+//ChangeSignFunc(2.4);
+
+//above is a lot od code and we have to have function wriiten every time , instead we can use closures which are kind of inline func
+
+//Step 1 : set ChangSignFunc to entire func except the name and func
+
+//var ChangSignFunc = (operand:Double)->Double{
+//    return -operand
+//}
+
+//Step 2 :  bring { to initial
+
+//var ChangSignFunc = {(operand:Double)->Double
+//    return -operand
+//}
+
+//Step 3 : swift knows what type of para ChangSignFunc is taking as well as its return type so, remove it
+
+//var ChangSignFunc = {(operand)
+//     -operand
+//}
+
+// Step 4: Instead of thinking of para names swft recognizes them as $0,$1, some remove para name also
+
+ChangeSignFunc = { -$0 }
+let negatedVal = ChangeSignFunc(0.4)
+
+
+//Uses of closure :
+//1.Passing method as argument
+//Trailing closure syntax
+
+//Arrays (Collection) has  map which maps values of  array to other values and return array of converted values
+
+var arrayOfNo:Array<Int> = Array<Int>()
+arrayOfNo = [2,4,6,8]
+var negationArray = arrayOfNo.map({-$0})
+// if closure or method is the  last para of method, keep closure it outside the method calling
+var invertedArray = arrayOfNo.map(){1/$0}
+// if closure or method is only para of method, keep it outside the method calling , with no paranthesisi
+
+var stringArray1 = arrayOfNo.map{String($0)}
+
+for str in 0..<negationArray.count
+{
+    print(negationArray[str])
+}
+
+
+//2.property Initializers
+
+//var somePropt:Type = {
+
+//    // some thing done runtime
+//return <Constructed value>
+//}()
+
+// closure {}, and we are executing it using () , same as func
+// Here by default closure will be like method with no para  and returns something runtime
+//Closures
+//inline func above we have sqrt but what if dont have such func and other func doing some, imp during initialization of prop with lazy
+
+//Thnings to take care of while using closures : they are ref type , hence dont use local vars in it
+
+
+
+//Error handling :
+//do{try}catch
+//try!
+//try?
+//throw, throws
+
+//Conversion of "Any" to perticular known type using as?
+//Downcasting parent to child , using as
+
+
+
+//NSObject,NSNumber,Date,Data : bag of bits
+
+
+
+///UIView
+//WAys of initiializing
+
+//init(frame) : if view is created in code
+//init(Nscoder) : if view is created using storyboard
+
+//awakeFromNib() : incase of ui created with interface builder () but not with init(frame)
+
+
+// ** Coordinate sys data structure
+//CG : Core grapichs underlying drawing system in ios
+//CGFloat,CGPoint,CGSize,CGRect
+//Origin is upper left , means we have y in down side : v iimmppp
+//Bounds : different view has its own bound /co-ordinate sys
+//Frame: where u are in your superview
+
+//override func draw:always override it
+//1. CGFloat
+//2. CGPoint
+//3. CGSize
+
+//Imp : Oringin is upper left
+
+//Draw by points not pixel
+
+//We can get pixels/ point by using contentScaleFactor which is in float
+
+//** Bounds **
+// Each view has its own co-ordinate sys
+//** Frame **
+
+//Specifies where you are in your super view
+
+
+//** Custom View **
+//draw(_cgrect)
+//setNeedsDisplay: redraws view
+
+
+//Core Graphics COncepts
+//1. UIGraphicsGetCurrentContext()
+//2. Create paths : through lines /arcs etc
+//3. Set Drawing attributes : color, Fonts etc
+//4. Stroke or fill the above created paths
+
+
+//UiBezeirpath
+//read starting part from video 5 : imp12
+
+
+//prepareSegue
+//performSegue
+//navigationController.pushviewController(controllerToPUsh,animated:true/false)
+
+//ViewController life cycle
+// ViewdidLoad, willAppear, didAppear, willdisapper,didisappear
+//place to do geometry related things (say bound changes something due to potraite or landscape) is
+//viewWillLayoutSubview
+//viewDidLayoutSubview
+//AutoRotation : viewWillTransition
+
+//UIAlertController : two types :alert, ActionSheet
+
+
+
+
+
